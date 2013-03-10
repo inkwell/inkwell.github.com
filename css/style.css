@@ -36,7 +36,9 @@ body { text-align: center; }
 
 #content {
   text-align: left;
-  width: 660px;
+  width: 700px;
+  padding: 0 20px;
+  max-width: 100%;
   margin:  2em auto;
   }
 img {
@@ -49,6 +51,12 @@ img {
   font-size: 1.5em;
   line-height: 1.5em;
   color: #333;
+  }
+em {
+  font-style: italic;
+  }
+strong {
+  font-weight: bold;
   }
 p, ul, ol, pre {
   margin-bottom: 1.25em;
@@ -65,7 +73,7 @@ h3, h4, h5, h6 {
   font-size: 0.8em;
   }
 code {
-  white-space: nowrap;
+  white-space: pre-wrap;
   }
 pre > code {
   white-space: pre;
