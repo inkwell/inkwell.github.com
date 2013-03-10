@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title></title>
+    <script src="js/marked.js"></script>
+    <script src="js/underscore.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div id="content"></div>
+    <script>
+    var gist = window.location.hash.substr(1);
+    marked.setOptions({
+        gfm: true,
+        tables: true,
+        breaks: false,
+        pedantic: false,
+        sanitize: false,
+        smartLists: true,
+        langPrefix: 'language-'
+    });
+    $.getJSON('https://api.github.com/gists/' + gist, function(d) {
+        var content = _(d.files).find(function(file) {
+            return (file.filename.indexOf('.md') !== -1 || file.filename.indexOf('.txt') !== -1);
+        }).content;
+        if (content) $('#content').html(marked(content));
+    })
+    </script>
+</body>
+</html>
