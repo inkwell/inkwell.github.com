@@ -3,15 +3,34 @@
 <head>
     <meta charset=utf-8 />
     <title>Inkwell</title>
-    <script src="js/underscore.js"></script>
-    <script src="js/marked.js"></script>
-    <script src="js/jquery.js"></script>
-    <link href="css/style.css" rel="stylesheet">
+    <link href='css/style.css' rel='stylesheet'>
 </head>
 <body>
-<div id="content"></div>
+<div id='content'></div>
+<script src='js/marked.js'></script>
 <script>
-var gist = (window.location.hash.length > 1) ? window.location.hash.substr(1) : 'a2bb1ca5d2bbf1dc398d';
+var content = document.getElementById('content');
+
+function xhr(url, callback) {
+    var x = new XMLHttpRequest(),
+        twoHundred = /^[23]0\d$/;
+    x.onreadystatechange = function() {
+        if (4 == x.readyState && 0 !== x.status) {
+            if (twoHundred.test(x.status)) callback(null, x);
+            else callback(x, null);
+        }
+    };
+    x.onerror = function(e) { return callback(e, null); };
+    x.open('GET', url);
+    x.send();
+}
+
+function values(o) {
+    var v = [];
+    for (var i in o) if (o.hasOwnProperty(i)) v.push(o[i]);
+    return v;
+}
+
 marked.setOptions({
     gfm: true,
     tables: true,
@@ -21,12 +40,26 @@ marked.setOptions({
     smartLists: true,
     langPrefix: 'language-'
 });
-$.getJSON('https://api.github.com/gists/' + gist, function(d) {
-    var content = _(d.files).find(function(file) {
-        return (file.filename.indexOf('.md') !== -1 || file.filename.indexOf('.txt') !== -1);
-    }).content;
-    if (content) $('#content').html(marked(content));
-})
+
+function load(gist) {
+    var gistUrl = 'https://api.github.com/gists/' + gist;
+    xhr(gistUrl, function(err, x) {
+        if (err) return content.innerHTML = 'Error loading Gist';
+        else var d = JSON.parse(x.responseText);
+        var c = (values(d.files || {}).filter(function(file) {
+            return (file.filename.indexOf('.md') !== -1 || file.filename.indexOf('.txt') !== -1);
+        })[0] || {}).content;
+        if (c) content.innerHTML = marked(c);
+    });
+}
+
+function loadHash() {
+    load(window.location.hash.length > 1 ?
+        window.location.hash.substr(1) : 'a2bb1ca5d2bbf1dc398d');
+}
+
+window.onhashchange = loadHash();
+loadHash();
 </script>
 </body>
 </html>
