@@ -44,8 +44,13 @@ body { text-align: center; }
 img {
   max-width: 100%;
   }
+blockquote {
+  padding: 0 01em;
+  border-left: 2px solid #CCC;
+  }
 
 /* Typography */
+
 #content {
   font-family: Georgia, serif;
   font-size: 1.5em;
