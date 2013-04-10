@@ -3,7 +3,7 @@ Inkwell is a simple system for reading [Markdown](http://daringfireball.net/proj
 
 ### Try it:
 
-http://inkwell.github.com
+http://inkwell.github.io
 
 
 ### Contributors
