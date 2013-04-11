@@ -5,7 +5,6 @@ Inkwell is a simple system for reading [Markdown](http://daringfireball.net/proj
 
 http://inkwell.github.io
 
-
 ### Contributors
 
 @dhcole, @tmcw
