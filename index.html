@@ -4,9 +4,11 @@
     <meta charset=utf-8 />
     <title>Inkwell</title>
     <link href='css/style.css' rel='stylesheet'>
+    <link href='css/highlight.min.css' rel='stylesheet'>
 </head>
 <body>
 <div id='content'></div>
+<script src='js/highlight.min.js'></script>
 <script src='js/marked.js'></script>
 <script>
 var content = document.getElementById('content');
@@ -38,7 +40,19 @@ marked.setOptions({
     pedantic: false,
     sanitize: false,
     smartLists: true,
-    langPrefix: 'language-'
+    langPrefix: 'language-',
+    highlight: function (code, lang) {
+        if (!lang) return code;
+
+        // Aliases
+        if (lang === 'js') lang = 'javascript';
+
+        try {
+            return hljs.highlight(lang, code).value;
+        } catch(e) {
+            return hljs.highlightAuto(code).value;
+        }
+    }
 });
 
 function load(gist) {
