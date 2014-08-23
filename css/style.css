@@ -1,97 +1,102 @@
-/* Reset */
+/* https://github.com/hypertexthero/typography/ */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  }
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-  display: block;
-  }
-body { line-height: 1; }
-blockquote, q { quotes: none; }
-blockquote:before, blockquote:after,
-q:before, q:after { content: ''; content: none; }
-table { border-collapse: collapse; border-spacing: 0; }
+body {
+  text-align:center; 
+  color:#000; 
+  font-family:georgia, serif; 
+  font-size:120%; 
+  line-height:1.6;
+  margin:0; 
+  padding:2em 2em 5em; 
+  background:rgb(253, 253, 253);
+  margin:auto;
+  max-width:33em;
+  color:rgb(10, 10, 10);
+} 
 
-/* Layout */
+a {font-weight:bold; text-decoration:none;}
+a:link {color:#c00;}
+a:visited {color:#606;}
+a:hover {color:#606;}
+a:active {color:#900; outline:none;}
 
-body { text-align: center; }
-
-#content {
-  text-align: left;
-  width: 700px;
-  padding: 0 20px;
-  max-width: 100%;
-  margin:  2em auto;
-  }
-img {
-  max-width: 100%;
-  }
-blockquote {
-  padding: 0 01em;
-  border-left: 2px solid #CCC;
-  }
-
-/* Typography */
-
-#content {
-  font-family: Georgia, serif;
-  font-size: 1.5em;
-  line-height: 1.5em;
-  color: #333;
-  }
-em {
-  font-style: italic;
-  }
-strong {
-  font-weight: bold;
-  }
-p, ul, ol, pre {
-  margin-bottom: 1.25em;
-  }
-h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 0.75em;
-  font-weight: bold;
-  line-height: 1.2em;
-  }
 h1 {
-  font-size: 1.5em;
-  }
-h3, h4, h5, h6 {
-  font-size: 0.8em;
-  }
-code {
-  white-space: pre-wrap;
-  }
-pre > code {
-  white-space: pre;
-  }
-code, pre {
-  font-family: monospace;
-  font-family: monospace;
-  font-size: 0.9em;
-  background: #eee;
-  padding: 0.15em 0.5em;
-  overflow: auto;
-  }
-a {
-  color: #333;
-  text-decoration: underline;
-  }
+  font-size:320%;
+  line-height:1.35;
+  font-style:normal;
+  margin:1.5em 0 0.8em;
+}
+
+h2 {
+  font-weight:bold;
+  font-size:200%;
+  margin:1em 0 0.8em;
+}
+
+h3 {
+  font-weight:normal;
+  text-transform:uppercase;
+  font-size:150%;
+  letter-spacing:0.15em;
+  margin:1.75em 0 0.8em;
+}
+
+h4 {
+  font-weight:normal;
+  font-size:150%;
+  letter-spacing:0.1em;
+  margin:1.5em 0 0.8em;
+}
+
+h5 {
+  font-weight:normal;
+  font-style:italic;
+  font-size:150%;
+  margin:1.5em 0 0.8em;
+}
+
+h6 {
+  font-weight:bold;
+  font-size:100%;
+  letter-spacing:0.1em;
+  margin:1.5em 0 0.8em;
+}
+
+p {
+  text-align:left;
+  font-size:100%;
+  margin:1em 0 0;
+}
+
+p.lead {
+  font-size:150%;
+  margin:1em 0;
+}
+
+p + p {
+  margin:0;
+  text-indent:1.5em;
+}
+
+p + ul, p + ol, p + dl {margin-bottom:1.5em;}
+p.lead + p {
+  text-indent:0;
+
+}
+
+blockquote {border-left:5px solid #eee; padding-left:1.5em; margin:1em 0;}
+blockquote small {display:block; line-height:1.7em;}
+ul, ol, dl {
+  text-align:left;
+}
+
+dt {font-weight:bold;}
+code {font-family:courier, monospace;}
+p > code {padding:0.25em; background:#eee;}
+pre {text-align:left; font-size:100%;}
+hr {height:0; color:#eee; border:1px solid #eee; margin:2em 0 1em;}
+
+.normal {font-weight:normal;}
+.quiet {color:#999;}
+.pull-left {float:left; margin:0.5em 2em 1em 0;}
+.pull-right {float:right; margin:0.5em 0 1em 2em;}
