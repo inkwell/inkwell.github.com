@@ -1,24 +1,18 @@
 /* https://github.com/hypertexthero/typography/ */
 
 body {
-  text-align:center; 
-  color:#000; 
-  font-family:georgia, serif; 
-  font-size:120%; 
+  color:#333;
+  font-family:georgia, serif;
+  font-size:120%;
   line-height:1.6;
-  margin:0; 
-  padding:2em 2em 5em; 
+  margin:0;
+  padding:2em 2em 5em;
   background:rgb(253, 253, 253);
   margin:auto;
   max-width:33em;
-  color:rgb(10, 10, 10);
-} 
+}
 
-a {font-weight:bold; text-decoration:none;}
-a:link {color:#c00;}
-a:visited {color:#606;}
-a:hover {color:#606;}
-a:active {color:#900; outline:none;}
+a {font-weight:bold; text-decoration:underline;}
 
 h1 {
   font-size:320%;
@@ -95,8 +89,3 @@ code {font-family:courier, monospace;}
 p > code {padding:0.25em; background:#eee;}
 pre {text-align:left; font-size:100%;}
 hr {height:0; color:#eee; border:1px solid #eee; margin:2em 0 1em;}
-
-.normal {font-weight:normal;}
-.quiet {color:#999;}
-.pull-left {float:left; margin:0.5em 2em 1em 0;}
-.pull-right {float:right; margin:0.5em 0 1em 2em;}
