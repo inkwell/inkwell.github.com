@@ -3,11 +3,12 @@
 <head>
     <meta charset=utf-8 />
     <title>Inkwell</title>
-    <link href='css/style.css' rel='stylesheet'>
+    <link href='css/base/latest/base.css' rel='stylesheet'>
     <link href='css/highlight.min.css' rel='stylesheet'>
 </head>
 <body>
-<div id='content'></div>
+<div class='pad2 margin2 col8'></div>
+<div id='content' class='prose margin2 pad4 col8'></div>
 <script src='js/highlight.min.js'></script>
 <script src='js/marked.js'></script>
 <script>
@@ -61,7 +62,9 @@ function load(gist) {
         if (err) return content.innerHTML = 'Error loading Gist';
         else var d = JSON.parse(x.responseText);
         var c = (values(d.files || {}).filter(function(file) {
-            return (file.filename.indexOf('.md') !== -1 || file.filename.indexOf('.txt') !== -1);
+            return (file.filename.indexOf('.md') !== -1 ||
+                    file.filename.indexOf('.txt') !== -1 ||
+                    file.language === 'Markdown');
         })[0] || {}).content;
         if (c) content.innerHTML = marked(c);
     });
@@ -72,7 +75,6 @@ function loadHash() {
         window.location.hash.substr(1) : 'a2bb1ca5d2bbf1dc398d');
 }
 
-window.onhashchange = loadHash();
 loadHash();
 </script>
 </body>
